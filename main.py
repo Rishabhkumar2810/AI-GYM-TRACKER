@@ -46,8 +46,7 @@ def main():
         try:
             api_key = os.environ.get("GROQ_API_KEY") or None
 
-            if not api_key and hasattr(st, "secrets") and "GROQ_API_KEY" in st.secrets:
-                api_key = st.secrets["GROQ_API_KEY"] or None
+            api_key = os.environ.get("GROQ_API_KEY")
 
             print("API key loaded:", api_key[:10] if api_key else "None")
             groq_client = Groq(api_key=api_key)
